@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shashen Fernando - Portfolio</title>
+   <link rel="icon" href="./image.jpg" type="image/png">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #ff5823;
+      --secondary-color: #1e1e1e;
+      --text-color: #f5f5f5;
+      --bg-color: #121212;
+      --card-bg: #1e1e1e;
+    }
+    
+    * { 
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box; 
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    a { 
+      color: var(--primary-color); 
+      text-decoration: none; 
+      transition: all 0.3s ease;
+    }
+    
+    a:hover {
+      opacity: 0.8;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Header */
+    header {
+      background: rgba(18, 18, 18, 0.9);
+      position: fixed;
+      width: 100%;
+      z-index: 1000;
+      padding: 20px 0;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+    
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--primary-color);
+    }
+    
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+    
+    nav ul li a {
+      color: var(--text-color);
+      font-weight: 500;
+      position: relative;
+    }
+    
+    nav ul li a:hover,
+    nav ul li a.active {
+      color: var(--primary-color);
+    }
+    
+    nav ul li a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: var(--primary-color);
+      bottom: -5px;
+      left: 0;
+      transition: width 0.3s ease;
+    }
+    
+    nav ul li a:hover::after,
+    nav ul li a.active::after {
+      width: 100%;
+    }
+    
+    /* Mobile Menu */
+    .menu-toggle {
+      display: none;
+      cursor: pointer;
+      font-size: 24px;
+      color: var(--text-color);
+    }
+    
+    /* Hero Section */
+    .hero {
+      height: auto;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 100px 0 80px;
+    }
+    
+    .hero-content {
+      display: flex;
+      align-items: center;
+      gap: 50px;
+    }
+    
+    .hero-text {
+      flex: 1;
+    }
+    
+    .hero-image {
+      flex: 1;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .hero-image img {
+      max-width: 280px;
+      width: 100%;
+      height: auto;
+      border-radius: 50%;
+      box-shadow: 0 10px 30px rgba(255, 88, 35, 0.3);
+      object-fit: cover;
+      aspect-ratio: 1/1;
+    }
+    
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+    
+    .hero h1 span {
+      color: var(--primary-color);
+    }
+    
+    .hero p {
+      font-size: 18px;
+      margin-bottom: 30px;
+      opacity: 0.9;
+    }
+    
+    .social-icons {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    
+    .social-icons a {
+      color: var(--text-color);
+      font-size: 20px;
+      background: var(--card-bg);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+    
+    .social-icons a:hover {
+      background: var(--primary-color);
+      color: white;
+      transform: translateY(-5px);
+    }
+    
+    .btn {
+      display: inline-block;
+      background: var(--primary-color);
+      color: white;
+      padding: 12px 30px;
+      border-radius: 30px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      border: 2px solid var(--primary-color);
+    }
+    
+    .btn:hover {
+      background: transparent;
+      color: var(--primary-color);
+      transform: translateY(-3px);
+    }
+    
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--primary-color);
+      color: var(--primary-color);
+      margin-left: 15px;
+    }
+    
+    .btn-outline:hover {
+      background: var(--primary-color);
+      color: white;
+    }
+    
+    /* Sections */
+    section {
+      padding: 100px 0;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    
+    .section-title h2 {
+      font-size: 36px;
+      position: relative;
+      display: inline-block;
+      padding-bottom: 15px;
+    }
+    
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      width: 70px;
+      height: 3px;
+      background: var(--primary-color);
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    /* About Section */
+    .about-content {
+      display: flex;
+      align-items: flex-start;
+      gap: 50px;
+    }
+
+    .about-text {
+      flex: 1;
+    }
+    
+    .about-text h3 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+    
+    .about-text p {
+      margin-bottom: 15px;
+    }
+    
+    .skills {
+      margin-top: 30px;
+    }
+    
+    .skill-item {
+      margin-bottom: 20px;
+    }
+    
+    .skill-name {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    
+    .skill-bar {
+      height: 10px;
+      background: #333;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    
+    .skill-progress {
+      height: 100%;
+      background: var(--primary-color);
+      border-radius: 5px;
+    }
+
+    .technical-expertise {
+      flex: 1;
+      background: var(--card-bg);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .technical-expertise h3 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: var(--primary-color);
+    }
+
+    .technical-expertise p {
+      margin-bottom: 25px;
+      opacity: 0.9;
+    }
+
+    .expertise-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+    }
+
+    .expertise-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .expertise-item:hover {
+      background: rgba(255, 88, 35, 0.1);
+    }
+
+    .expertise-item i {
+      color: var(--primary-color);
+      font-size: 18px;
+      width: 24px;
+      text-align: center;
+    }
+    
+    /* Services Section */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    
+    .service-card {
+      background: var(--card-bg);
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(255, 88, 35, 0.2);
+    }
+    
+    .service-icon {
+      font-size: 40px;
+      color: var(--primary-color);
+      margin-bottom: 20px;
+    }
+    
+    .service-card h3 {
+      font-size: 22px;
+      margin-bottom: 15px;
+    }
+    
+    /* Portfolio Section */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    
+    .portfolio-item {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      height: 250px;
+    }
+    
+    .portfolio-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: all 0.5s ease;
+    }
+    
+    .portfolio-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 88, 35, 0.9);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+    
+    .portfolio-item:hover .portfolio-overlay {
+      opacity: 1;
+    }
+    
+    .portfolio-item:hover .portfolio-img {
+      transform: scale(1.1);
+    }
+    
+    .portfolio-overlay h3 {
+      color: white;
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+    
+    .portfolio-overlay a {
+      color: white;
+      font-size: 20px;
+      margin: 0 10px;
+    }
+    
+    /* Contact Section */
+    .contact-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 50px;
+    }
+    
+    .contact-info {
+      margin-bottom: 30px;
+    }
+    
+    .contact-info h3 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    
+    .contact-details {
+      margin-bottom: 20px;
+    }
+    
+    .contact-details p {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .contact-details i {
+      margin-right: 15px;
+      color: var(--primary-color);
+      font-size: 20px;
+      width: 20px;
+    }
+    
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 20px;
+      background: var(--card-bg);
+      border: none;
+      border-radius: 5px;
+      color: var(--text-color);
+    }
+    
+    .contact-form textarea {
+      height: 150px;
+      resize: none;
+    }
+    
+    /* Footer */
+    footer {
+      background: var(--card-bg);
+      padding: 30px 0;
+      text-align: center;
+    }
+    
+    .footer-text p {
+      margin-bottom: 20px;
+    }
+    
+    .footer-social a {
+      color: var(--text-color);
+      font-size: 20px;
+      margin: 0 10px;
+      transition: all 0.3s ease;
+    }
+    
+    .footer-social a:hover {
+      color: var(--primary-color);
+      transform: translateY(-5px);
+    }
+    
+    /* Responsive */
+    @media (max-width: 1200px) {
+      .hero h1 {
+        font-size: 42px;
+      }
+      
+      .section-title h2 {
+        font-size: 32px;
+      }
+    }
+    
+    @media (max-width: 992px) {
+      .hero-content,
+      .about-content {
+        flex-direction: column;
+      }
+      
+      .hero-text,
+      .about-text {
+        order: 2;
+        text-align: center;
+      }
+      
+      .hero-image,
+      .technical-expertise {
+        order: 1;
+        margin-bottom: 40px;
+      }
+      
+      .btn-group {
+        display: flex;
+        justify-content: center;
+      }
+      
+      .social-icons {
+        justify-content: center;
+      }
+      
+      .hero h1 {
+        font-size: 38px;
+      }
+      
+      .hero p {
+        font-size: 16px;
+      }
+
+      .hero-image img {
+        max-width: 250px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+      
+      nav ul {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background: var(--bg-color);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 40px;
+        transition: all 0.5s ease;
+      }
+      
+      nav ul.active {
+        left: 0;
+      }
+      
+      .hero h1 {
+        font-size: 32px;
+      }
+      
+      .hero-image img {
+        max-width: 220px;
+      }
+      
+      .section-title h2 {
+        font-size: 28px;
+      }
+      
+      section {
+        padding: 80px 0;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .hero h1 {
+        font-size: 28px;
+      }
+      
+      .hero p {
+        font-size: 15px;
+      }
+      
+      .btn-group {
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      .btn-outline {
+        margin-left: 0;
+      }
+      
+      .hero-image img {
+        max-width: 180px;
+      }
+      
+      .section-title h2 {
+        font-size: 26px;
+      }
+
+      .expertise-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+       .btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none !important;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container header-container">
+      <a href="#" class="logo">Shashen<span>.</span></a>
+      <div class="menu-toggle">
+        <i class="fas fa-bars"></i>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <h1>Hi, I'm <span>Shashen Fernando</span></h1>
+        <p>A backend engineer passionate about building secure, scalable systems that drive digital transformation.</p>
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/in/shashen-fernando-8838ba253/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"><i class="fab fa-linkedin"></i></a>
+          <a href="https://www.instagram.com/shash3n.f/profilecard/?igsh=am81MWlkM3g1Ym52"><i class="fab fa-instagram"></i></a>
+          <a href="https://github.com/shashenfernando"><i class="fab fa-github"></i></a>
+          <a href="https://web.facebook.com/shashen.fernando.52?mibextid=LQQJ4d&rdid=9u0N65aou9yP3tJs&share_url=https%3A%2F%2Fweb.facebook.com%2Fshare%2FiVkoNB38DMCf2Wot%2F%3Fmibextid%3DLQQJ4d%26_rdc%3D1%26_rdr#"><i class="fab fa-facebook"></i></a>
+        </div>
+        <div class="btn-group">
+          <a href="#contact" class="btn">Hire Me</a>
+          <a href="#" class="btn btn-outline">Download CV</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="./Untitled.jpeg" alt="Shashen Fernando">
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="container">
+      <div class="section-title">
+        <h2>About Me</h2>
+      </div>
+      <div class="about-content">
+        <div class="about-text">
+          <h3>Backend Engineer | Fintech Specialist</h3>
+          <p>As a core member of the iPay Sri Lanka team at LOLC Technologies, I specialize in designing and developing robust backend systems that power one of the country’s leading digital payment platforms. My focus lies in creating secure, scalable solutions that ensure seamless financial transactions while maintaining the highest standards of system reliability and data protection.</p>
+          <!-- <p>My journey in tech began when I was studying Computer Science at the University of Colombo. Since then, I've worked with various startups and agencies, helping them build their digital presence.</p> -->
+          
+          <div class="skills">
+            <div class="skill-item">
+              <div class="skill-name">
+                <span>JAVA</span>
+                <span>95%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 95%"></div>
+              </div>
+            </div>
+            
+            <div class="skill-item">
+              <div class="skill-name">
+                <span>PYTHON</span>
+                <span>65%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 85%"></div>
+              </div>
+            </div>
+            
+            <div class="skill-item">
+              <div class="skill-name">
+                <span>HTML</span>
+                <span>90%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 90%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Technical Expertise Section -->
+        <div class="technical-expertise">
+          <h3>Technical Expertise</h3>
+          <p>Skilled in modern tools, technologies, and problem-solving to deliver efficient, high-quality solutions.</p>
+          
+          <div class="expertise-list">
+            <div class="expertise-item">
+              <i class="fas fa-server"></i>
+              <span>Backend Development</span>
+            </div>
+            <div class="expertise-item">
+              <i class="fas fa-database"></i>
+              <span>Database Management</span>
+            </div>
+            <div class="expertise-item">
+              <i class="fas fa-cloud"></i>
+              <span>Cloud Deployment</span>
+            </div>
+            <div class="expertise-item">
+              <i class="fas fa-plug"></i>
+              <span>API Integration</span>
+            </div>
+            <div class="expertise-item">
+              <i class="fas fa-cogs"></i>
+              <span>Jenkins / CI CD / Docker</span>
+            </div>
+            <div class="expertise-item">
+              <i class="fas fa-laptop-code"></i>
+              <span>FrontEnd Development</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="services">
+    <div class="container">
+      <div class="section-title">
+        <h2>My Services</h2>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3>Web Development</h3>
+          <p>Building modern, responsive websites and web applications using the latest technologies and frameworks.</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-paint-brush"></i>
+          </div>
+          <h3>UI/UX Design</h3>
+          <p>Creating beautiful, intuitive user interfaces that enhance user experience and drive engagement.</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-mobile-alt"></i>
+          </div>
+          <h3>Responsive Design</h3>
+          <p>Ensuring your website looks and works perfectly on all devices, from desktop to mobile.</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-search"></i>
+          </div>
+          <h3>SEO Optimization</h3>
+          <p>Improving your website's visibility on search engines to attract more organic traffic.</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-server"></i>
+          </div>
+          <h3>Backend Development</h3>
+          <p>Building robust server-side applications and APIs to power your web applications.</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-headset"></i>
+          </div>
+          <h3>Support & Maintenance</h3>
+          <p>Providing ongoing support and maintenance to keep your website running smoothly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <!-- <section id="portfolio" class="portfolio">
+    <div class="container">
+      <div class="section-title">
+        <h2>My Portfolio</h2>
+      </div>
+      <div class="portfolio-grid">
+        <div class="portfolio-item">
+          <img src="https://via.placeholder.com/600x400.png?text=Project+1" alt="Project 1" class="portfolio-img">
+          <div class="portfolio-overlay">
+            <h3>E-Commerce Website</h3>
+            <div>
+              <a href="#"><i class="fas fa-link"></i></a>
+              <a href="#"><i class="fas fa-search"></i></a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="portfolio-item">
+          <img src="https://via.placeholder.com/600x400.png?text=Project+2" alt="Project 2" class="portfolio-img">
+          <div class="portfolio-overlay">
+            <h3>Blog Platform</h3>
+            <div>
+              <a href="#"><i class="fas fa-link"></i></a>
+              <a href="#"><i class="fas fa-search"></i></a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="portfolio-item">
+          <img src="https://via.placeholder.com/600x400.png?text=Project+3" alt="Project 3" class="portfolio-img">
+          <div class="portfolio-overlay">
+            <h3>Portfolio Website</h3>
+            <div>
+              <a href="#"><i class="fas fa-link"></i></a>
+              <a href="#"><i class="fas fa-search"></i></a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="portfolio-item">
+          <img src="https://via.placeholder.com/600x400.png?text=Project+4" alt="Project 4" class="portfolio-img">
+          <div class="portfolio-overlay">
+            <h3>Task Management App</h3>
+            <div>
+              <a href="#"><i class="fas fa-link"></i></a>
+              <a href="#"><i class="fas fa-search"></i></a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="portfolio-item">
+          <img src="https://via.placeholder.com/600x400.png?text=Project+5" alt="Project 5" class="portfolio-img">
+          <div class="portfolio-overlay">
+            <h3>Restaurant Website</h3>
+            <div>
+              <a href="#"><i class="fas fa-link"></i></a>
+              <a href="#"><i class="fas fa-search"></i></a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="portfolio-item">
+          <img src="https://via.placeholder.com/600x400.png?text=Project+6" alt="Project 6" class="portfolio-img">
+          <div class="portfolio-overlay">
+            <h3>Fitness App</h3>
+            <div>
+              <a href="#"><i class="fas fa-link"></i></a>
+              <a href="#"><i class="fas fa-search"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- Contact Section -->
+  <!-- <section id="contact" class="contact">
+    <div class="container">
+      <div class="section-title">
+        <h2>Contact Me</h2>
+      </div>
+      <div class="contact-container">
+        <div class="contact-info">
+          <h3>Get In Touch</h3>
+          <div class="contact-details">
+            <p><i class="fas fa-envelope"></i> shashenfinfo@email.com</p>
+            <p><i class="fas fa-phone"></i> +94 754682445</p>
+            <p><i class="fas fa-map-marker-alt"></i> Panadura, Sri Lanka</p>
+          </div>
+          <div class="social-icons">
+            <a href="https://www.linkedin.com/in/shashen-fernando-8838ba253/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.instagram.com/shash3n.f/profilecard/?igsh=am81MWlkM3g1Ym52"><i class="fab fa-instagram"></i></a>
+            <a href="https://github.com/shashenfernando"><i class="fab fa-github"></i></a>
+            <a href="https://web.facebook.com/shashen.fernando.52?mibextid=LQQJ4d&rdid=9u0N65aou9yP3tJs&share_url=https%3A%2F%2Fweb.facebook.com%2Fshare%2FiVkoNB38DMCf2Wot%2F%3Fmibextid%3DLQQJ4d%26_rdc%3D1%26_rdr#"><i class="fab fa-facebook"></i></a>
+          </div>
+        </div>
+        <div class="contact-form">
+          <form id="contactForm" action="https://formspree.io/f/xyzz1234" method="POST">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <input type="text" id="subject" placeholder="Subject">
+            <textarea id="message" placeholder="Your Message" required></textarea>
+            <button type="submit" id="submitBtn" class="btn" disabled>Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="section-title">
+        <h2>Contact Me</h2>
+      </div>
+      <div class="contact-container">
+        <div class="contact-info">
+          <h3>Get In Touch</h3>
+          <div class="contact-details">
+            <p><i class="fas fa-envelope"></i> shashenfinfo@email.com</p>
+            <p><i class="fas fa-phone"></i> +94 754682445</p>
+            <p><i class="fas fa-map-marker-alt"></i> Panadura, Sri Lanka</p>
+          </div>
+          <div class="social-icons">
+            <a href="https://www.linkedin.com/in/shashen-fernando-8838ba253/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.instagram.com/shash3n.f/profilecard/?igsh=am81MWlkM3g1Ym52"><i class="fab fa-instagram"></i></a>
+            <a href="https://github.com/shashenfernando"><i class="fab fa-github"></i></a>
+            <a href="https://web.facebook.com/shashen.fernando.52?mibextid=LQQJ4d&rdid=9u0N65aou9yP3tJs&share_url=https%3A%2F%2Fweb.facebook.com%2Fshare%2FiVkoNB38DMCf2Wot%2F%3Fmibextid%3DLQQJ4d%26_rdc%3D1%26_rdr#"><i class="fab fa-facebook"></i></a>
+          </div>
+        </div>
+        <div class="contact-form">
+          <form id="contactForm">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <input type="text" id="subject" placeholder="Subject" required>
+            <textarea id="message" placeholder="Your Message" required></textarea>
+            <button type="submit" id="submitBtn" class="btn" disabled>Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-text">
+        <p>&copy; 2025 Shashen Fernando. All Rights Reserved.</p>
+      </div>
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/in/shashen-fernando-8838ba253/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"><i class="fab fa-linkedin"></i></a>
+        <a href="https://www.instagram.com/shash3n.f/profilecard/?igsh=am81MWlkM3g1Ym52"><i class="fab fa-instagram"></i></a>
+        <a href="https://github.com/shashenfernando"><i class="fab fa-github"></i></a>
+        <a href="https://web.facebook.com/shashen.fernando.52?mibextid=LQQJ4d&rdid=9u0N65aou9yP3tJs&share_url=https%3A%2F%2Fweb.facebook.com%2Fshare%2FiVkoNB38DMCf2Wot%2F%3Fmibextid%3DLQQJ4d%26_rdc%3D1%26_rdr#"><i class="fab fa-facebook"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile Menu Toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('nav ul');
+    
+    menuToggle.addEventListener('click', () => {
+      nav.classList.toggle('active');
+      menuToggle.innerHTML = nav.classList.contains('active') ? 
+        '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+    });
+    
+    // Close mobile menu when clicking on a nav link
+    document.querySelectorAll('nav ul li a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('active');
+        menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+      });
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          const headerHeight = document.querySelector('header').offsetHeight;
+          const targetPosition = targetElement.offsetTop - headerHeight;
+          
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+    
+    // Active link highlighting on scroll
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('nav ul li a');
+    
+    window.addEventListener('scroll', () => {
+      let current = '';
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        
+        if (pageYOffset >= (sectionTop - 100)) {
+          current = section.getAttribute('id');
+        }
+      });
+      
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    });
+    
+    // Header scroll effect
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('header');
+      header.style.padding = window.scrollY > 20 ? '15px 0' : '20px 0';
+    });
+
+
+  // Enhanced Form Validation
+    const contactForm = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const formInputs = contactForm.querySelectorAll('input, textarea');
+
+    // Function to check form validity
+    function checkFormValidity() {
+      let isFormValid = true;
+      
+      formInputs.forEach(input => {
+        if (input.required && !input.value.trim()) {
+          isFormValid = false;
+        }
+      });
+
+      submitBtn.disabled = !isFormValid;
+    }
+
+    // Add event listeners to all form fields
+    formInputs.forEach(input => {
+      input.addEventListener('input', checkFormValidity);
+    });
+
+    // Initial check
+    checkFormValidity();
+
+    // Form submission
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Disable button during submission
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+      
+      // Here you would normally send the form data to your server
+      // For demonstration, we'll simulate a successful submission
+      setTimeout(() => {
+        // alert('Message sent successfully!');
+        contactForm.reset();
+        submitBtn.textContent = 'Send Message';
+        checkFormValidity(); // Re-check form validity after reset
+      }, 1500);
+    });
+  </script>
+</body>
+</html>
